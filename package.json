@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "biome lint --write . --unsafe",
+    "format": "biome format --write .",
+    "typecheck": "biome check --staged --write ."
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.11.1",
