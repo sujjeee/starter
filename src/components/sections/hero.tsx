@@ -1,6 +1,6 @@
+import { Icons } from "@/components/icons"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
 import { MoveRight } from "lucide-react"
 
 interface HeroProps {
@@ -32,6 +32,7 @@ export function Hero({ stars }: HeroProps) {
             target="_blank"
             href="https://github.com/sujjeee/starter"
             className="flex items-center text-sm font-medium text-muted-foreground"
+            rel="noreferrer"
           >
             Documentation
             <MoveRight className="ml-1 size-4" />

@@ -14,7 +14,7 @@ export async function getGithubStars() {
           next: {
             revalidate: 60,
           },
-        }
+        },
       )
 
       if (!response.ok) {
@@ -29,6 +29,6 @@ export async function getGithubStars() {
     {
       revalidate: 900,
       tags: ["github-stars"],
-    }
+    },
   )()
 }
