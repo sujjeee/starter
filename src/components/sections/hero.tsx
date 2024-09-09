@@ -1,7 +1,9 @@
 import { Icons } from "@/components/icons"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { MoveRight } from "lucide-react"
+import Link from "next/link"
 
 interface HeroProps {
   stars: number
@@ -27,11 +29,21 @@ export function Hero({ stars }: HeroProps) {
           of popular tech stacks and tools.
         </p>
         <div className="flex items-center space-x-6">
-          <Button size={"sm"}>Get started</Button>
+          <Link
+            href="/login"
+            className={cn(
+              buttonVariants({
+                variant: "default",
+                size: "sm",
+              })
+            )}
+          >
+            Get started
+          </Link>
           <a
             target="_blank"
             href="https://github.com/sujjeee/starter"
-            className="flex items-center text-sm font-medium text-muted-foreground"
+            className="flex items-center text-sm font-medium text-muted-foreground leading-6 text-zinc-90"
             rel="noreferrer"
           >
             Documentation
