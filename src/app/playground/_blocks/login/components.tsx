@@ -19,7 +19,7 @@ import { Icons } from "@/components/icons"
 import { showErrorToast } from "@/lib/errors"
 import { cn } from "@/lib/utils"
 import { Spinner } from "@/components/icons/spinner"
-
+import { createGoogleAuthURL } from "./actions"
 export function LoginOptions() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = React.useState(false)
@@ -54,10 +54,10 @@ export function LoginOptions() {
     try {
       setIsGoogleLoading(true)
 
-      // const { data, error } = await createGoogleAuthURL()
-      // if (error) throw new Error(error)
+      const { data, error } = await createGoogleAuthURL()
+      if (error) throw new Error(error)
 
-      // if (data) return (window.location.href = data)
+      if (data) return (window.location.href = data)
     } catch (error) {
       showErrorToast(error)
     } finally {

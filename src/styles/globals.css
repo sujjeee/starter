@@ -66,3 +66,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+.hide_scrollbar::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@-moz-document url-prefix() {
+  /* Disable scrollbar Firefox */
+  .hide_scrollbar {
+    scrollbar-width: none;
+  }
+}

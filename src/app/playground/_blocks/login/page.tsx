@@ -1,15 +1,14 @@
-import type { Metadata } from "next"
 import { Command } from "lucide-react"
 import { LoginOptions } from "./components"
+import { Card } from "@/components/ui/card"
 
-export const metadata: Metadata = {
-  title: "Login",
-}
-
-export default async function LoginPage() {
+export function Login() {
   return (
-    <div className="container flex h-screen w-screen flex-col items-center justify-center">
-      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+    <Card className="p-6 sm:p-8 max-w-[500px] h-fit rounded-2xl overflow-hidden">
+      <div
+        className="mx-auto flexflex-col justify-center space-y-6 w-full "
+        style={{ scale: 0.9 }}
+      >
         <div className="flex flex-col space-y-2 text-center">
           <Command className="mx-auto size-6" />
           <h1 className="font-semibold text-2xl tracking-tight">
@@ -21,6 +20,6 @@ export default async function LoginPage() {
         </div>
         <LoginOptions />
       </div>
-    </div>
+    </Card>
   )
 }

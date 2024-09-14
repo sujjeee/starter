@@ -30,7 +30,7 @@ export function Hero({ stars }: HeroProps) {
         </p>
         <div className="flex items-center space-x-6">
           <Link
-            href="/login"
+            href="/playground"
             className={cn(
               buttonVariants({
                 variant: "default",
@@ -38,7 +38,7 @@ export function Hero({ stars }: HeroProps) {
               })
             )}
           >
-            Coming soon
+            Playground
           </Link>
           <a
             target="_blank"
