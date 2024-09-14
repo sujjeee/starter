@@ -25,8 +25,8 @@ export function Hero({ stars }: HeroProps) {
           Build modern websites with next.js
         </h1>
         <p className="mb-8 text-[21px] text-muted-foreground leading-[28px]">
-          Spend your weekend creating amazing web apps with a <br /> collection
-          of popular tech stacks and tools.
+          Spend your weekends building amazing web apps with a collection of the
+          latest tech stacks and tools.
         </p>
         <div className="flex items-center space-x-6">
           <Link
