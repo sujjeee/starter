@@ -86,6 +86,9 @@
         "noUnsafeNegation": "error",
         "useGetterReturn": "error",
         "useValidTypeof": "error"
+      },
+      "nursery": {
+        "useSortedClasses": "info"
       }
     },
     "ignore": ["node_modules", ".next", "dist", "public"]
