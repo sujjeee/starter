@@ -1,6 +1,14 @@
 # Next.js Starter Boilerplate
 
-A modern, feature-rich starter boilerplate for building Next.js applications, equipped with a powerful tech stack to accelerate your development process.
+<kbd>
+<a href="https://artoons.vercel.app">
+  <img alt="Next.js Starter Boilerplate!" src="https://artoons.vercel.app/opengraph-image.png">
+</a>
+</kbd>
+
+## Introduction
+
+If you're a weekend hustler looking to bring your ideas to life, this starter boilerplate is perfect for you. It includes everything you need to build an MVP in a weekend. With this boilerplate, you'll have access to the latest tech stacks and tools, minimizing setup time so you can focus on building and maximizing productivity.
 
 ## Tech Stack
 
@@ -8,14 +16,19 @@ A modern, feature-rich starter boilerplate for building Next.js applications, eq
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
 - **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
-- **Database:** [SQLite](https://turso.tech/)
+- **Database:** [SQLite](https://turso.tech/) (guide to use [postgresql](https://orm.drizzle.team/docs/get-started-postgresql))
 - **Authentication:** [Lucia](https://lucia-auth.com/)
-- **Component Library:** [Shadcn UI](https://ui.shadcn.com/)
+- **UI Components:** [Shadcn UI](https://ui.shadcn.com/)
 - **Form Management:** [React Hook Form](https://react-hook-form.com/)
 - **State Management:** [Zustand](https://zustand-demo.pmnd.rs/)
 - **Validation:** [Zod](https://zod.dev/)
-- **Formatter and Linter:** [Biome](https://biomejs.dev/)
-- **Email Service:** [Resend](https://resend.com/)
+- **Formatter & Linter:** [Biome](https://biomejs.dev/)
+- **Email templates:** [React Email](https://react.email/)
+- **Email delivery:** [Resend](https://resend.com/)
+- **Rate limiting:** [Resend](https://upstash.com/)
+- **Theme manager:** [next-themes](https://next-themes-example.vercel.app/)
+- **Validated Server Actions:** [next-safe-action](https://next-safe-action.dev)
+- **Type-safe search params state manager:** [nuqs](https://nuqs.47ng.com/)
 
 ## Running Locally
 
@@ -46,5 +59,9 @@ A modern, feature-rich starter boilerplate for building Next.js applications, eq
 5. Start the development server
 
    ```bash
-   pnpm run dev
+   pnpm dev
    ```
+
+## Deploy
+
+Follow the deployment guides for [Vercel](https://nextjs.org/learn-pages-router/basics/deploying-nextjs-app/deploy).
