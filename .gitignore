@@ -38,3 +38,6 @@ next-env.d.ts
 
 # local setup
 .prettierrc
+
+# todos list
+todo
