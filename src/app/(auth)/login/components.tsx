@@ -20,20 +20,18 @@ import { showErrorToast } from "@/lib/errors"
 import { cn } from "@/lib/utils"
 import { Spinner } from "@/components/icons/spinner"
 
-type Input = z.infer<typeof emailSchema>
-
 export function LoginOptions() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = React.useState(false)
 
-  const form = useForm<Input>({
+  const form = useForm<z.infer<typeof emailSchema>>({
     resolver: zodResolver(emailSchema),
     defaultValues: {
       email: "",
     },
   })
 
-  async function onSubmit(formData: Input) {
+  async function onSubmit(_formData: z.infer<typeof emailSchema>) {
     try {
       setIsLoading(true)
 
@@ -96,7 +94,7 @@ export function LoginOptions() {
       </Form>
 
       <div className="relative">
-        <div className="absolute inset-0 flex items-center">
+        <div className="absolute inset-0 flex items-center ">
           <span className="w-full border-t" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">

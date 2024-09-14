@@ -1,6 +1,6 @@
 import { Icons } from "@/components/icons"
 import { Badge } from "@/components/ui/badge"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { MoveRight } from "lucide-react"
 import Link from "next/link"
@@ -12,13 +12,13 @@ interface HeroProps {
 export function Hero({ stars }: HeroProps) {
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
-      <div className="max-w-screen-sm">
+      <div className="max-w-[620px] w-fit">
         <div className="mb-8 flex items-center space-x-6">
           <Badge
             variant="outline"
-            className="relative rounded-full px-3 py-1 text-xs leading-6 text-muted-foreground ring-1.5 ring-inset ring-muted-foreground"
+            className="relative rounded-full px-3 py-1 text-muted-foreground text-xs leading-6 ring-1.5 ring-muted-foreground ring-inset"
           >
-            <Icons.github className="size-4 mr-1.5" /> {stars} Stars on Github
+            <Icons.github className="mr-1.5 size-4" /> {stars} Stars on Github
           </Badge>
         </div>
         <h1 className="mb-6 text-[56px] text-foreground leading-[61px]">
@@ -38,12 +38,12 @@ export function Hero({ stars }: HeroProps) {
               })
             )}
           >
-            Get started
+            Coming soon
           </Link>
           <a
             target="_blank"
             href="https://github.com/sujjeee/starter"
-            className="flex items-center text-sm font-medium text-muted-foreground leading-6 text-zinc-90"
+            className="flex items-center font-medium text-muted-foreground text-sm text-zinc-90 leading-6"
             rel="noreferrer"
           >
             Documentation

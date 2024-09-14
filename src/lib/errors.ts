@@ -7,11 +7,13 @@ export function getErrorMessage(err: unknown) {
       return issue.message
     })
     return errors.join("\n")
-  } else if (err instanceof Error) {
-    return err.message
-  } else {
-    return "Something went wrong. Please try again later."
   }
+
+  if (err instanceof Error) {
+    return err.message
+  }
+
+  return "Something went wrong. Please try again later."
 }
 
 export function showErrorToast(err: unknown) {

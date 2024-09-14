@@ -1,7 +1,7 @@
 import { Lucia, TimeSpan } from "lucia"
 import { DrizzleSQLiteAdapter } from "@lucia-auth/adapter-drizzle"
 import { db } from "@/db"
-import { sessions, User, users } from "@/db/schemas"
+import { sessions, type User, users } from "@/db/schemas"
 
 const adapter = new DrizzleSQLiteAdapter(db, sessions, users)
 
@@ -33,5 +33,5 @@ declare module "lucia" {
   }
 }
 
-interface DatabaseSessionAttributes {}
+type DatabaseSessionAttributes = {}
 type DatabaseUserAttributes = User

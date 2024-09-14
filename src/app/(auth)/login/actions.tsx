@@ -8,7 +8,7 @@ import { magicLinks } from "@/db/schemas/magic-link"
 import { emailSchema } from "@/lib/validations"
 import { eq } from "drizzle-orm"
 import { generateId } from "lucia"
-import { z } from "zod"
+import type { z } from "zod"
 import jwt from "jsonwebtoken"
 import { cache } from "react"
 import { lucia } from "@/lib/lucia"
@@ -35,8 +35,8 @@ export async function createGoogleAuthURL() {
 
     const google = new Google(
       env.GOOGLE_CLIENT_ID,
-      env.GOOGLE_CLIENT_ID_CLIENT_SECRET,
-      env.NEXT_PUBLIC_APP_URL + "/api/callbacks/google"
+      env.GOOGLE_CLIENT_SECRET,
+      `${env.NEXT_PUBLIC_APP_URL}/api/callbacks/google`
     )
 
     const authUrl = await google.createAuthorizationURL(state, codeVerifier, {
@@ -100,7 +100,7 @@ export async function signInWithEmail(values: z.infer<typeof emailSchema>) {
 }
 
 export async function generateMagicLink(email: string, userId: string) {
-  const token = jwt.sign({ email: email, userId }, process.env.JWT_SECRET!, {
+  const token = jwt.sign({ email: email, userId }, env.JWT_SECRET, {
     expiresIn: "5m",
   })
 
@@ -139,7 +139,7 @@ export const getCurrentUser = cache(async () => {
   const { user, session } = await lucia.validateSession(sessionId)
 
   try {
-    if (session && session.fresh) {
+    if (session?.fresh) {
       const sessionCookie = lucia.createSessionCookie(session.id)
       cookies().set(
         sessionCookie.name,
