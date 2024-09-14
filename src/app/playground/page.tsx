@@ -1,6 +1,10 @@
 import React from "react"
 import { Login } from "./_blocks/login/page"
 import { UrlState } from "./_blocks/url-state/page"
+import { RateLimiter } from "./_blocks/rate-limiter/page"
+import { NextForm } from "./_blocks/form/page"
+import { Metadata } from "./_blocks/metadata/page"
+import { ThemeToggle } from "./_blocks/theme/page"
 
 export default function page() {
   return (
@@ -9,6 +13,10 @@ export default function page() {
         <div className="list-none space-y-4 py-8 sm:block sm:columns-2 sm:gap-4 lg:columns-3 pb-28">
           <Login />
           <UrlState />
+          <RateLimiter />
+          <NextForm />
+          <Metadata />
+          <ThemeToggle />
         </div>
       </div>
     </section>

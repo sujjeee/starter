@@ -1,8 +1,8 @@
 # Next.js Starter Boilerplate
 
 <kbd>
-<a href="https://artoons.vercel.app">
-  <img alt="Next.js Starter Boilerplate!" src="https://artoons.vercel.app/opengraph-image.png">
+<a href="starter.sujjeee.com">
+  <img alt="Next.js Starter Boilerplate!" src="https://starter.sujjeee.com/opengraph-image.png">
 </a>
 </kbd>
 

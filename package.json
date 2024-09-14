@@ -21,6 +21,7 @@
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@t3-oss/env-nextjs": "^0.11.1",
+    "@vercel/functions": "^1.4.1",
     "arctic": "^1.9.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
