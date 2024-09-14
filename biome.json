@@ -6,12 +6,6 @@
     "useIgnoreFile": true,
     "defaultBranch": "main"
   },
-  "files": {
-    "ignore": [
-      "packages/ui/src/components/*.tsx",
-      "packages/ui/src/components/*.ts"
-    ]
-  },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
