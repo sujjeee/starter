@@ -1,5 +1,6 @@
 import React from "react"
 import { Login } from "./_blocks/login/page"
+import { UrlState } from "./_blocks/url-state/page"
 
 export default function page() {
   return (
@@ -7,12 +8,7 @@ export default function page() {
       <div className="sm:container sm:max-w-screen-xl">
         <div className="list-none space-y-4 py-8 sm:block sm:columns-2 sm:gap-4 lg:columns-3 pb-28">
           <Login />
-          <Login />
-          <Login />
-          <Login />
-          <Login />
-          <Login />
-          <Login />
+          <UrlState />
         </div>
       </div>
     </section>
