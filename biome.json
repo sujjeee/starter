@@ -20,33 +20,11 @@
     "lineEnding": "lf",
     "lineWidth": 80,
     "attributePosition": "auto",
-    "ignore": [
-      "node_modules",
-      ".next",
-      "dist",
-      "public",
-      "templates",
-      "*.woff",
-      "**/*.sql",
-      "**/.*.js",
-      "**/*.js",
-      "**/*.cjs",
-      "**/*.ejs",
-      "**/*.json"
-    ]
+    "ignore": ["node_modules", ".next", "dist", "public"]
   },
   "organizeImports": {
     "enabled": true,
-    "ignore": [
-      "node_modules",
-      ".next",
-      "dist",
-      "public",
-      "templates",
-      "*.woff",
-      "**/*.sql",
-      "build"
-    ]
+    "ignore": ["node_modules", ".next", "dist", "public"]
   },
   "linter": {
     "enabled": true,
@@ -116,19 +94,7 @@
         "useValidTypeof": "error"
       }
     },
-    "ignore": [
-      "node_modules",
-      ".next",
-      "dist",
-      "public",
-      "templates",
-      "*.woff",
-      "**/*.sql",
-      "**/.*.js",
-      "**/*.js",
-      "**/*.cjs",
-      "**/*.ejs"
-    ]
+    "ignore": ["node_modules", ".next", "dist", "public"]
   },
   "javascript": {
     "formatter": {
