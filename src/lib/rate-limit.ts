@@ -10,15 +10,13 @@ interface RateLimitOptions {
   duration: Duration
 }
 
-const redisEnv = Redis.fromEnv()
-
 export async function rateLimit({
   identifier,
   limit,
   duration,
 }: RateLimitOptions) {
   const ratelimiter = new Ratelimit({
-    redis: redisEnv,
+    redis: Redis.fromEnv(),
     limiter: Ratelimit.slidingWindow(limit, duration),
     analytics: true,
     prefix: "@starter",
