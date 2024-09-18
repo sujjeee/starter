@@ -6,9 +6,8 @@ import { catchError } from "@/lib/errors"
 export async function useRateLimiter() {
   try {
     await rateLimit({
+      actionType: "profileUpdate",
       identifier: "127.0.0.1",
-      limit: 5,
-      duration: "10 m",
     })
 
     return {
