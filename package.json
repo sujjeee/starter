@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
-    "@libsql/client": "^0.10.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@supabase/ssr": "^0.5.1",
@@ -37,6 +36,7 @@
     "next-safe-action": "^7.9.3",
     "next-themes": "^0.3.0",
     "nuqs": "^1.19.1",
+    "postgres": "^3.4.4",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",

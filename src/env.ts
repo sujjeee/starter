@@ -4,7 +4,6 @@ import { z } from "zod"
 export const env = createEnv({
   server: {
     DATABASE_URL: z.string(),
-    DATABASE_AUTH_TOKEN: z.string(),
 
     JWT_SECRET: z.string(),
 
@@ -23,7 +22,6 @@ export const env = createEnv({
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
 
     DATABASE_URL: process.env.DATABASE_URL,
-    DATABASE_AUTH_TOKEN: process.env.DATABASE_AUTH_TOKEN,
 
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
