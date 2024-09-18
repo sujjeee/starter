@@ -18,15 +18,15 @@ export async function GET(request: Request) {
       return NextResponse.redirect(
         new URL(
           `/signup?error=${encodeURIComponent(error.message)}`,
-          request.url
-        )
+          request.url,
+        ),
       )
     }
 
     return NextResponse.redirect(new URL(next, request.url))
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.redirect(
-      new URL(`/signup?error=ServerError`, request.url)
+      new URL("/signup?error=ServerError", request.url),
     )
   }
 }

@@ -9,60 +9,42 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Mail } from "lucide-react"
+import { ClipboardType } from "lucide-react"
 import { Shell } from "@/components/ui/shell"
-import React from "react"
-import { sendEmail } from "./actions"
 import { toast } from "sonner"
-import { showErrorToast } from "@/lib/errors"
-import { Spinner } from "@/components/icons/spinner"
 
 const FormSchema = z.object({
-  email: z.string().email(),
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
 })
 
-export function EmailShell() {
-  const [isLoading, setIsLoading] = React.useState(false)
-
+export function NextForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      email: "",
+      username: "",
     },
   })
 
-  async function onSubmit(formData: z.infer<typeof FormSchema>) {
-    try {
-      setIsLoading(true)
-
-      const { error } = await sendEmail({
-        email: formData.email,
-      })
-
-      if (error) throw new Error(error)
-
-      toast("Email sent! Please check your inbox.")
-      form.reset()
-    } catch (error) {
-      showErrorToast(error)
-    } finally {
-      setIsLoading(false)
-    }
+  function onSubmit(_data: z.infer<typeof FormSchema>) {
+    toast.success("Form submitted successfully")
   }
 
   return (
     <Shell
       header={{
-        icon: <Mail className="size-3.5" />,
-        title: "Email",
+        icon: <ClipboardType className="size-3.5" />,
+        title: "Form",
       }}
     >
-      <div className="sm:p-8 max-w-[500px] h-fit ">
+      <div className="h-fit max-w-[500px] sm:p-8 ">
         <div
-          className="mx-auto flexflex-col justify-center space-y-3 w-full "
+          className="flexflex-col mx-auto w-full justify-center space-y-3 "
           style={{ scale: 0.9 }}
         >
           <Form {...form}>
@@ -72,19 +54,19 @@ export function EmailShell() {
             >
               <FormField
                 control={form.control}
-                name="email"
+                name="username"
                 render={({ field }) => (
                   <FormItem>
+                    <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="Email" {...field} />
+                      <Input placeholder="shadcn" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button type="submit" className="w-full">
-                {isLoading && <Spinner />}
-                Send
+                Submit
               </Button>
             </form>
           </Form>

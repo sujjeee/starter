@@ -2,7 +2,7 @@
 
 import { Shell } from "@/components/ui/shell"
 import { GlobeIcon } from "lucide-react"
-import React, { useEffect, useState, useMemo } from "react"
+import { useEffect, useState, useMemo } from "react"
 
 export function Metadata() {
   const [metadata, setMetadata] = useState({
@@ -28,7 +28,7 @@ export function Metadata() {
         const data = await response.json()
 
         setMetadata(data)
-      } catch (error) {
+      } catch (_error) {
         setError(true)
       }
     }
@@ -38,7 +38,7 @@ export function Metadata() {
 
   const InfoItem = ({ label, value }: { label: string; value: string }) => (
     <div>
-      <h2 className="text-sm font-semibold capitalize">{label}</h2>
+      <h2 className="font-semibold text-sm capitalize">{label}</h2>
       <p className="text-gray-400">{value}</p>
     </div>
   )
@@ -65,9 +65,9 @@ export function Metadata() {
         title: "Metadata",
       }}
     >
-      <div className="sm:p-8 max-w-[500px] h-fit ">
+      <div className="h-fit max-w-[500px] sm:p-8 ">
         <div
-          className="mx-auto flexflex-col justify-center space-y-6 w-full "
+          className="flexflex-col mx-auto w-full justify-center space-y-6 "
           style={{ scale: 0.9 }}
         >
           <div className="grid grid-cols-2 gap-4">{metadataItems}</div>

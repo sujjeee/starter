@@ -12,7 +12,7 @@ interface HeroProps {
 export function Hero({ stars }: HeroProps) {
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
-      <div className="max-w-[620px] w-fit">
+      <div className="w-fit max-w-[620px]">
         <div className="mb-8 flex items-center space-x-6">
           <Badge
             variant="outline"
@@ -35,7 +35,7 @@ export function Hero({ stars }: HeroProps) {
               buttonVariants({
                 variant: "default",
                 size: "sm",
-              })
+              }),
             )}
           >
             Playground

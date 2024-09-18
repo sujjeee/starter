@@ -9,7 +9,7 @@ export const users = pgTable(
   },
   (table) => ({
     idx_users_email: index("idx_users_email").on(table.email),
-  })
+  }),
 )
 
 export type User = typeof users.$inferSelect

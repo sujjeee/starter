@@ -1,4 +1,4 @@
-import { type Duration } from "@upstash/ratelimit"
+import type { Duration } from "@upstash/ratelimit"
 
 export interface SlidingWindowConfig {
   limit: number

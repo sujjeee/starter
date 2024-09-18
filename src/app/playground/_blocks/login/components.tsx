@@ -21,6 +21,45 @@ import { cn } from "@/lib/utils"
 import { Spinner } from "@/components/icons/spinner"
 import { supabaseClient } from "@/lib/supabase/client"
 import { loginWithEmail } from "./actions"
+import type { User } from "@supabase/supabase-js"
+import { Shell } from "@/components/ui/shell"
+import { Command, LockIcon } from "lucide-react"
+
+export function Login({ user }: { user: User | null }) {
+  return (
+    <Shell
+      header={{
+        icon: <LockIcon className="size-3.5" />,
+        title: "Login",
+      }}
+    >
+      <div className="h-fit max-w-[500px] sm:p-8 ">
+        <div
+          className="flexflex-col mx-auto w-full justify-center space-y-6 "
+          style={{ scale: 0.9 }}
+        >
+          {user ? (
+            <LogOut />
+          ) : (
+            <>
+              <div className="flex flex-col space-y-2 text-center">
+                <Command className="mx-auto size-6" />
+                <h1 className="font-semibold text-2xl tracking-tight">
+                  Welcome back
+                </h1>
+                <p className="text-muted-foreground text-sm">
+                  Enter your email to sign in to your account
+                </p>
+              </div>
+              <LoginOptions />
+            </>
+          )}
+        </div>
+      </div>
+    </Shell>
+  )
+}
+
 export function LoginOptions() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = React.useState(false)

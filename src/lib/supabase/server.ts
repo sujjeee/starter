@@ -14,7 +14,7 @@ export const supabase = createClient(
       autoRefreshToken: false,
       persistSession: false,
     },
-  }
+  },
 )
 
 export const supabaseAdmin = supabase.auth.admin
@@ -34,7 +34,7 @@ export function supbaseServerClient() {
           try {
             cookiesToSet.forEach(({ name, value, options }) =>
               // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-              cookieStore.set(name, value, options)
+              cookieStore.set(name, value, options),
             )
           } catch {
             // The `setAll` method was called from a Server Component.
@@ -43,7 +43,7 @@ export function supbaseServerClient() {
           }
         },
       },
-    }
+    },
   )
 
   return supabase

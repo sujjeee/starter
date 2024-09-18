@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Shell } from "@/components/ui/shell"
-import { Infinity } from "lucide-react"
+import { InfinityIcon } from "lucide-react"
 import { useRateLimiter } from "./actions"
 import { toast } from "sonner"
 import React from "react"
@@ -29,13 +29,13 @@ export function RateLimiter() {
   return (
     <Shell
       header={{
-        icon: <Infinity className="size-3.5" />,
+        icon: <InfinityIcon className="size-3.5" />,
         title: "Rate limiter",
       }}
     >
-      <div className="sm:p-8 max-w-[500px] h-fit ">
+      <div className="h-fit max-w-[500px] sm:p-8 ">
         <div
-          className="mx-auto flexflex-col justify-center space-y-3 w-full "
+          className="flexflex-col mx-auto w-full justify-center space-y-3 "
           style={{ scale: 0.9 }}
         >
           <Button className="w-full" onClick={onSubmit}>

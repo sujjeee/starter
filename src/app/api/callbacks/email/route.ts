@@ -1,15 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server"
-
-import { type EmailOtpType } from "@supabase/supabase-js"
-
-import { getErrorMessage } from "@/lib/errors"
 import { rateLimit } from "@/lib/rate-limit"
 import { supbaseServerClient } from "@/lib/supabase/server"
-
-interface BodyProps {
-  token_hash: string
-  type: EmailOtpType
-}
 
 export async function GET(request: NextRequest) {
   try {
@@ -32,7 +23,7 @@ export async function GET(request: NextRequest) {
 
       return NextResponse.redirect(new URL(next, request.url))
     }
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.redirect(new URL("/error", request.url))
   }
 }

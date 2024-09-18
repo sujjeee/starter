@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse, userAgent } from "next/server"
+import { type NextRequest, NextResponse, userAgent } from "next/server"
 import { geolocation, ipAddress } from "@vercel/functions"
 
 export async function GET(request: NextRequest) {

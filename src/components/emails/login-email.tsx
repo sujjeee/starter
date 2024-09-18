@@ -1,4 +1,3 @@
-import * as React from "react"
 import {
   Body,
   Button,
@@ -24,18 +23,18 @@ export function LoginEmail({ url }: LoginEmailProps) {
       <Tailwind>
         {/* eslint-disable-next-line tailwindcss/enforces-shorthand */}
         <Body className="mx-auto my-auto bg-white px-2 font-sans">
-          <Container className="mx-auto my-2.5 max-w-[480px] rounded-md border border-solid border-neutral-100 bg-white p-8">
-            <Heading className="mb-6 text-xl font-semibold text-neutral-950">
+          <Container className="mx-auto my-2.5 max-w-[480px] rounded-md border border-neutral-100 border-solid bg-white p-8">
+            <Heading className="mb-6 font-semibold text-neutral-950 text-xl">
               Verify your email to login
             </Heading>
-            <Text className="text-sm leading-6 text-neutral-950">
+            <Text className="text-neutral-950 text-sm leading-6">
               Click the button below to securely login, this link will expire in
               5 minutes.
             </Text>
             {/* eslint-disable-next-line tailwindcss/enforces-shorthand */}
-            <Section className="mb-[32px] mt-[32px] text-left">
+            <Section className="mt-[32px] mb-[32px] text-left">
               <Button
-                className="rounded-md bg-neutral-950 px-5 py-3 text-center text-[14px] font-normal text-white no-underline"
+                className="rounded-md bg-neutral-950 px-5 py-3 text-center font-normal text-[14px] text-white no-underline"
                 href={url}
               >
                 Log in

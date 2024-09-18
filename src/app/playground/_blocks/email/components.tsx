@@ -7,42 +7,62 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { ClipboardType, ShellIcon } from "lucide-react"
+import { Mail } from "lucide-react"
 import { Shell } from "@/components/ui/shell"
+import React from "react"
+import { sendEmail } from "./actions"
+import { toast } from "sonner"
+import { showErrorToast } from "@/lib/errors"
+import { Spinner } from "@/components/icons/spinner"
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  email: z.string().email(),
 })
 
-export function NextForm() {
+export function EmailShell() {
+  const [isLoading, setIsLoading] = React.useState(false)
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: "",
+      email: "",
     },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {}
+  async function onSubmit(formData: z.infer<typeof FormSchema>) {
+    try {
+      setIsLoading(true)
+
+      const { error } = await sendEmail({
+        email: formData.email,
+      })
+
+      if (error) throw new Error(error)
+
+      toast("Email sent! Please check your inbox.")
+      form.reset()
+    } catch (error) {
+      showErrorToast(error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <Shell
       header={{
-        icon: <ClipboardType className="size-3.5" />,
-        title: "Form",
+        icon: <Mail className="size-3.5" />,
+        title: "Email",
       }}
     >
-      <div className="sm:p-8 max-w-[500px] h-fit ">
+      <div className="h-fit max-w-[500px] sm:p-8 ">
         <div
-          className="mx-auto flexflex-col justify-center space-y-3 w-full "
+          className="flexflex-col mx-auto w-full justify-center space-y-3 "
           style={{ scale: 0.9 }}
         >
           <Form {...form}>
@@ -52,19 +72,19 @@ export function NextForm() {
             >
               <FormField
                 control={form.control}
-                name="username"
+                name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="shadcn" {...field} />
+                      <Input placeholder="Email" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button type="submit" className="w-full">
-                Submit
+                {isLoading && <Spinner />}
+                Send
               </Button>
             </form>
           </Form>

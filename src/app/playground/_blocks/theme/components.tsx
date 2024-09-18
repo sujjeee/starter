@@ -15,9 +15,9 @@ export function ThemeToggle() {
         title: "Theme",
       }}
     >
-      <div className="sm:p-8 max-w-[500px] h-fit ">
+      <div className="h-fit max-w-[500px] sm:p-8 ">
         <div
-          className="mx-auto flexflex-col justify-center space-y-3 w-full "
+          className="flexflex-col mx-auto w-full justify-center space-y-3 "
           style={{ scale: 0.9 }}
         >
           <Button
@@ -27,7 +27,7 @@ export function ThemeToggle() {
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             <Sun
-              className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+              className="dark:-rotate-90 h-5 w-5 rotate-0 scale-100 transition-all dark:scale-0"
               aria-hidden="true"
             />
             <Moon

@@ -10,7 +10,7 @@ export function UrlState() {
   const [hello, setHello] = useQueryState("hello", { defaultValue: "" })
   const [count, setCount] = useQueryState(
     "count",
-    parseAsInteger.withDefault(0)
+    parseAsInteger.withDefault(0),
   )
 
   return (
@@ -20,9 +20,9 @@ export function UrlState() {
         title: "Url state manager",
       }}
     >
-      <div className="sm:p-8 max-w-[500px] h-fit ">
+      <div className="h-fit max-w-[500px] sm:p-8 ">
         <div
-          className="mx-auto flexflex-col justify-center space-y-3 w-full "
+          className="flexflex-col mx-auto w-full justify-center space-y-3 "
           style={{ scale: 0.9 }}
         >
           <Input
