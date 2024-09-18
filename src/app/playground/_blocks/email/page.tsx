@@ -24,7 +24,7 @@ const FormSchema = z.object({
   email: z.string().email(),
 })
 
-export function Email() {
+export function EmailShell() {
   const [isLoading, setIsLoading] = React.useState(false)
 
   const form = useForm<z.infer<typeof FormSchema>>({
