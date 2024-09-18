@@ -1,8 +1,8 @@
 # Next.js Starter Boilerplate
 
 <kbd>
-<a href="starter.sujjeee.com">
-  <img alt="Next.js Starter Boilerplate!" src="https://starter.sujjeee.com/opengraph-image.png">
+<a href="https://weekend-starter.vercel.app">
+  <img alt="Next.js Starter Boilerplate!" src="https://weekend-starter.vercel.app/opengraph-image.png">
 </a>
 </kbd>
 
@@ -16,7 +16,7 @@ If you're a weekend hustler looking to bring your ideas to life, this starter bo
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
 - **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
-- **Database:** [SQLite](https://turso.tech/) (guide to use [postgresql](https://orm.drizzle.team/docs/get-started-postgresql))
+- **Database:** [Postgresql](https://orm.drizzle.team/docs/get-started-postgresql)
 - **Authentication:** [Supabase Auth](https://supabase.com/)
 - **UI Components:** [Shadcn UI](https://ui.shadcn.com/)
 - **Form Management:** [React Hook Form](https://react-hook-form.com/)
@@ -25,9 +25,8 @@ If you're a weekend hustler looking to bring your ideas to life, this starter bo
 - **Formatter & Linter:** [Biome](https://biomejs.dev/)
 - **Email templates:** [React Email](https://react.email/)
 - **Email delivery:** [Resend](https://resend.com/)
-- **Rate limiting:** [Resend](https://upstash.com/)
+- **Rate limiting:** [Upstash](https://upstash.com/)
 - **Theme manager:** [next-themes](https://next-themes-example.vercel.app/)
-- **Validated Server Actions:** [next-safe-action](https://next-safe-action.dev)
 - **Type-safe search params state manager:** [nuqs](https://nuqs.47ng.com/)
 
 ## Running Locally
