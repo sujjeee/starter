@@ -20,6 +20,7 @@ import { showErrorToast } from "@/lib/errors"
 import { cn } from "@/lib/utils"
 import { Spinner } from "@/components/icons/spinner"
 import { supabaseClient } from "@/lib/supabase/client"
+import { loginWithEmail } from "./actions"
 export function LoginOptions() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = React.useState(false)
@@ -35,11 +36,11 @@ export function LoginOptions() {
     try {
       setIsLoading(true)
 
-      // const { error } = await signInWithEmail({
-      //   email: formData.email,
-      // })
+      const { error } = await loginWithEmail({
+        email: formData.email,
+      })
 
-      // if (error) throw new Error(error)
+      if (error) throw new Error(error)
 
       toast("Email sent! Please check your inbox to verify.")
       form.reset()
@@ -58,10 +59,6 @@ export function LoginOptions() {
         provider: "google",
         options: {
           redirectTo: `${location.origin}/api/callbacks/google?next=/playground`,
-          queryParams: {
-            access_type: "offline",
-            prompt: "consent",
-          },
         },
       })
     } catch (error) {

@@ -1,7 +1,23 @@
+import "server-only"
+
 import { cookies } from "next/headers"
 
 import { env } from "@/env"
 import { createServerClient } from "@supabase/ssr"
+import { createClient } from "@supabase/supabase-js"
+
+export const supabase = createClient(
+  env.NEXT_PUBLIC_SUPABASE_URL,
+  env.SUPABASE_SERVICE_KEY,
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  }
+)
+
+export const supabaseAdmin = supabase.auth.admin
 
 export function supbaseServerClient() {
   const cookieStore = cookies()

@@ -14,12 +14,19 @@ import {
 import { Input } from "@/components/ui/input"
 import { Mail } from "lucide-react"
 import { Shell } from "@/components/ui/shell"
+import React from "react"
+import { sendEmail } from "./actions"
+import { toast } from "sonner"
+import { showErrorToast } from "@/lib/errors"
+import { Spinner } from "@/components/icons/spinner"
 
 const FormSchema = z.object({
   email: z.string().email(),
 })
 
 export function Email() {
+  const [isLoading, setIsLoading] = React.useState(false)
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -27,7 +34,24 @@ export function Email() {
     },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {}
+  async function onSubmit(formData: z.infer<typeof FormSchema>) {
+    try {
+      setIsLoading(true)
+
+      const { error } = await sendEmail({
+        email: formData.email,
+      })
+
+      if (error) throw new Error(error)
+
+      toast("Email sent! Please check your inbox.")
+      form.reset()
+    } catch (error) {
+      showErrorToast(error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <Shell
@@ -59,6 +83,7 @@ export function Email() {
                 )}
               />
               <Button type="submit" className="w-full">
+                {isLoading && <Spinner />}
                 Send
               </Button>
             </form>
