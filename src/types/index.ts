@@ -7,7 +7,7 @@ export interface SlidingWindowConfig {
 
 export interface RateLimitProps {
   actionType?: ActionType
-  identifier: string
+  identifier?: string
 }
 
-export type ActionType = "profileUpdate" | "templateUpdate" | "exportConnection"
+export type ActionType = "sendEmail" | "loginEmail" | "testRateLimiter"
