@@ -1,8 +1,11 @@
 import { Command, LockIcon } from "lucide-react"
-import { LoginOptions } from "./components"
+import { LoginOptions, LogOut } from "./components"
 import { Shell } from "@/components/ui/shell"
+import { getUser } from "@/lib/supabase/server"
 
-export function Login() {
+export async function Login() {
+  const user = await getUser()
+
   return (
     <Shell
       header={{
@@ -15,16 +18,22 @@ export function Login() {
           className="mx-auto flexflex-col justify-center space-y-6 w-full "
           style={{ scale: 0.9 }}
         >
-          <div className="flex flex-col space-y-2 text-center">
-            <Command className="mx-auto size-6" />
-            <h1 className="font-semibold text-2xl tracking-tight">
-              Welcome back
-            </h1>
-            <p className="text-muted-foreground text-sm">
-              Enter your email to sign in to your account
-            </p>
-          </div>
-          <LoginOptions />
+          {user ? (
+            <LogOut />
+          ) : (
+            <>
+              <div className="flex flex-col space-y-2 text-center">
+                <Command className="mx-auto size-6" />
+                <h1 className="font-semibold text-2xl tracking-tight">
+                  Welcome back
+                </h1>
+                <p className="text-muted-foreground text-sm">
+                  Enter your email to sign in to your account
+                </p>
+              </div>
+              <LoginOptions />
+            </>
+          )}
         </div>
       </div>
     </Shell>

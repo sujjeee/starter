@@ -17,7 +17,7 @@ If you're a weekend hustler looking to bring your ideas to life, this starter bo
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
 - **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
 - **Database:** [SQLite](https://turso.tech/) (guide to use [postgresql](https://orm.drizzle.team/docs/get-started-postgresql))
-- **Authentication:** [Lucia](https://lucia-auth.com/)
+- **Authentication:** [Supabase Auth](https://supabase.com/)
 - **UI Components:** [Shadcn UI](https://ui.shadcn.com/)
 - **Form Management:** [React Hook Form](https://react-hook-form.com/)
 - **State Management:** [Zustand](https://zustand-demo.pmnd.rs/)

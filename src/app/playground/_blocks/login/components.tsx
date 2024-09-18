@@ -19,7 +19,7 @@ import { Icons } from "@/components/icons"
 import { showErrorToast } from "@/lib/errors"
 import { cn } from "@/lib/utils"
 import { Spinner } from "@/components/icons/spinner"
-import { createGoogleAuthURL } from "./actions"
+import { supabaseClient } from "@/lib/supabase/client"
 export function LoginOptions() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = React.useState(false)
@@ -31,7 +31,7 @@ export function LoginOptions() {
     },
   })
 
-  async function onSubmit(_formData: z.infer<typeof emailSchema>) {
+  async function onSubmit(formData: z.infer<typeof emailSchema>) {
     try {
       setIsLoading(true)
 
@@ -54,10 +54,16 @@ export function LoginOptions() {
     try {
       setIsGoogleLoading(true)
 
-      const { data, error } = await createGoogleAuthURL()
-      if (error) throw new Error(error)
-
-      if (data) return (window.location.href = data)
+      await supabaseClient.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: `${location.origin}/api/callbacks/google?next=/playground`,
+          queryParams: {
+            access_type: "offline",
+            prompt: "consent",
+          },
+        },
+      })
     } catch (error) {
       showErrorToast(error)
     } finally {
@@ -116,5 +122,19 @@ export function LoginOptions() {
         Continue with Google
       </button>
     </div>
+  )
+}
+
+export function LogOut() {
+  return (
+    <Button
+      className="w-full"
+      onClick={async () => {
+        await supabaseClient.auth.signOut()
+        window.location.reload()
+      }}
+    >
+      Log out
+    </Button>
   )
 }
