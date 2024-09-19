@@ -16,7 +16,7 @@ If you're a weekend hustler looking to bring your ideas to life, this starter bo
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
 - **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
-- **Database:** [Postgresql](https://orm.drizzle.team/docs/get-started-postgresql)
+- **Database:** [Postgresql](https://supabase.com/)
 - **Authentication:** [Supabase Auth](https://supabase.com/)
 - **UI Components:** [Shadcn UI](https://ui.shadcn.com/)
 - **Form Management:** [React Hook Form](https://react-hook-form.com/)
