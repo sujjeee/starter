@@ -62,7 +62,7 @@ export function Login({ user }: { user: User | null }) {
 
 export function LoginOptions() {
   const [isLoading, setIsLoading] = React.useState(false)
-  const [isGoogleLoading, setIsGoogleLoading] = React.useState(false)
+  const [isPending, startTransition] = React.useTransition()
 
   const form = useForm<z.infer<typeof emailSchema>>({
     resolver: zodResolver(emailSchema),
@@ -90,21 +90,15 @@ export function LoginOptions() {
     }
   }
 
-  async function onGoogleAuth() {
-    try {
-      setIsGoogleLoading(true)
-
+  function handleGoogleAuth() {
+    startTransition(async () => {
       await supabaseClient.auth.signInWithOAuth({
         provider: "google",
         options: {
           redirectTo: `${location.origin}/api/callbacks/google?next=/playground`,
         },
       })
-    } catch (error) {
-      showErrorToast(error)
-    } finally {
-      setIsGoogleLoading(false)
-    }
+    })
   }
 
   return (
@@ -144,19 +138,10 @@ export function LoginOptions() {
         </div>
       </div>
 
-      <button
-        type="button"
-        className={cn(buttonVariants({ variant: "outline" }))}
-        disabled={isGoogleLoading}
-        onClick={onGoogleAuth}
-      >
-        {isGoogleLoading ? (
-          <Spinner />
-        ) : (
-          <Icons.google className="mr-2 size-4" aria-hidden="true" />
-        )}
+      <Button variant="outline" disabled={isPending} onClick={handleGoogleAuth}>
+        {isPending ? <Spinner /> : <Icons.google className="mr-2 size-4" />}
         Continue with Google
-      </button>
+      </Button>
     </div>
   )
 }
